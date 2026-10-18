@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Habits & Customs – My Habits, Your Habits, Our Lives</title>
+<style>
+:root{--bg:#FCFAFF;--l1:#F0E7FF;--l2:#DCC7FF;--l3:#B99AE8;--fx:#D946A8;--f:#B8318A;--dp:#5B3A78;--tx:#30283B;--w:#fff;
+font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-size:18px;line-height:1.6}
+:focus-visible{outline:3px solid var(--fx);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:rgba(252,250,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--l2);padding:.6rem 1rem}
+.top div{max-width:920px;margin:auto}
+.bar{height:10px;background:var(--l1);border-radius:9px;overflow:hidden;margin:.3rem 0}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--l3),var(--fx));transition:width .5s}
+.dots{display:flex;gap:.35rem;flex-wrap:wrap;align-items:center;font-size:.85rem;color:var(--dp);font-weight:700}
+.dots a{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:var(--l1);color:var(--dp);font-weight:800}.dots a.d{background:var(--fx);color:#fff}
+header{text-align:center;padding:2.5rem 1rem 1rem;background:linear-gradient(180deg,var(--l1),var(--bg))}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.15;color:var(--dp);margin:.2rem 0}
+h2{color:var(--dp);font-size:clamp(1.5rem,4vw,2rem);margin:0 0 .2rem}h2 small{display:block;font-size:.95rem;color:var(--f);letter-spacing:.08em;text-transform:uppercase}
+h3{color:var(--dp);margin:.4rem 0}
+main{max-width:920px;margin:auto;padding:0 1rem 3rem}
+section{padding:2.4rem 0 .5rem}
+.lead{color:#5d5469;margin:.2rem 0 1rem}
+.card{background:var(--w);border:1px solid var(--l2);border-radius:20px;padding:1.1rem 1.3rem;box-shadow:0 4px 14px rgba(91,58,120,.07);margin-bottom:1rem}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.btn,.chip,.opt,.tab{font:inherit;font-weight:700;cursor:pointer;border-radius:99px;border:2px solid var(--l2);background:var(--w);color:var(--dp);padding:.45rem 1rem;transition:.15s}
+.btn{background:var(--f);border-color:var(--f);color:#fff}.btn:hover{filter:brightness(1.1)}
+.btn.s{background:var(--w);color:var(--f)}
+.chip:hover,.opt:hover:not(:disabled),.tab:hover{border-color:var(--fx);background:var(--l1)}
+.tab.on,.chip.on{background:var(--dp);border-color:var(--dp);color:#fff}
+.opts{display:flex;flex-wrap:wrap;gap:.6rem;margin:.6rem 0}.opt{border-radius:14px}
+.opt.ok{background:#DDF3E4;border-color:#6dbd86;color:#1f4a30}.opt.no{background:#FBE0EA;border-color:var(--fx);color:#6a1d4d}
+.fb{min-height:1.5em;margin:.2rem 0;font-weight:700;color:var(--dp)}
+.say{background:var(--l1);border-left:5px solid var(--fx);border-radius:12px;padding:.5rem .9rem;margin-top:.6rem;font-weight:700}
+.hl{color:var(--f);font-weight:800}
+.icons{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:.8rem 0}.icons span{background:var(--w);border:1px solid var(--l2);border-radius:16px;padding:.3rem .8rem;font-size:.95rem;font-weight:700;color:var(--dp)}.icons b{display:block;font-size:1.7rem}
+/* srs */
+.flash{width:100%;min-height:210px;border:2px solid var(--l2);border-radius:24px;background:linear-gradient(160deg,#fff,var(--l1));font:inherit;color:var(--tx);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:1.2rem;text-align:center;box-shadow:0 6px 18px rgba(91,58,120,.1)}
+.flash.back{background:linear-gradient(160deg,var(--l2),var(--l1));border-color:var(--fx)}
+.flash em{font:normal 3rem system-ui}.flash b{font-size:1.7rem;color:var(--dp)}.flash small{color:#6d6379}
+.rate{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:.8rem}
+.rate button:disabled{opacity:.4;cursor:not-allowed}
+.stat{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;font-weight:700;color:var(--dp);margin-bottom:.6rem}
+/* scale */
+.track{height:12px;border-radius:9px;background:linear-gradient(90deg,var(--l1),var(--l3),var(--fx));margin:1rem 0 .6rem}
+.sc{display:grid;grid-template-columns:repeat(7,1fr);gap:.4rem}
+.sc button{font:inherit;background:var(--w);border:2px solid var(--l2);border-radius:16px;padding:.5rem .2rem;cursor:pointer;color:var(--dp);font-weight:800;font-size:.9rem;line-height:1.2}
+.sc button span{display:block;font-size:1.6rem}.sc button small{display:block;font-weight:600;color:#6d6379;font-size:.78rem}
+.sc button.on{background:var(--dp);color:#fff;border-color:var(--dp)}.sc button.on small{color:#e8dbfa}
+@media(max-width:640px){.sc{grid-template-columns:repeat(4,1fr)}}
+select,input[type=text]{font:inherit;color:var(--tx);border:2px solid var(--l2);border-radius:12px;padding:.4rem .6rem;background:var(--w);max-width:100%}
+input[type=text]{width:12em}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin:.5rem 0}
+.gap{border:2px dashed var(--l3);background:var(--w);border-radius:8px;color:var(--f);font-weight:800;cursor:pointer;padding:0 .5rem;font:inherit}.gap:hover{background:var(--l1)}
+.pat{display:none;background:var(--l1);border-radius:16px;padding:1rem;margin-top:.8rem}.pat.show{display:block}
+.pat b{background:var(--w);border:2px solid var(--l3);border-radius:8px;padding:0 .5rem;margin:0 .1rem}.pat b.a{border-color:var(--fx);color:var(--f)}
+.tn{display:grid;gap:.5rem;grid-template-columns:1fr 1fr;margin-bottom:.5rem}
+.tn div{border-radius:14px;padding:.6rem .9rem;font-weight:600}.tn .t{background:var(--l1)}.tn .n{background:#FBE3F1}
+.tn h4{margin:0;font-size:.8rem;letter-spacing:.1em;color:var(--f)}
+table{width:100%;border-collapse:collapse;font-size:.95rem;text-align:center}th,td{border:1px solid var(--l2);padding:.35rem}th{background:var(--l1);color:var(--dp)}td:first-child{text-align:left;font-weight:700}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--fx)}
+.tv{border:3px dashed var(--l3);border-radius:20px;padding:1rem 1.4rem;background:var(--w);margin-top:1rem}
+.tv li{margin-bottom:.3rem}.tv h3{border-bottom:2px solid var(--l1)}
+.sw{display:flex;align-items:center;gap:.6rem;font-weight:700;color:var(--dp);cursor:pointer}
+footer{text-align:center;padding:1.5rem;color:#6d6379;font-size:.9rem}
+@media print{.top{position:static}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="top"><div>
+<div class="dots" id="dots" aria-label="Lesson parts"></div>
+<div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="9" id="pb"><i id="pf"></i></div>
+<small id="pt" style="color:var(--dp);font-weight:700">Lesson progress: 0 / 9</small>
+</div></div>
+
+<header>
+<p class="hl" style="margin:0">English Lesson · Helaine</p>
+<h1>Habits &amp; Customs</h1>
+<p class="lead" style="font-size:1.2rem">My Habits, Your Habits, Our Lives</p>
+<p class="lead">Today you can talk about <span class="hl">what you do</span>, <span class="hl">how often</span> you do it, and <span class="hl">what you used to do</span>.</p>
+</header>
+
+<main>
+<section id="p1"><h2><small>Part 1</small>What's Your Routine Like?</h2>
+<p class="lead">Tap an answer. You can say the short answer or the full sentence.</p>
+<div class="icons"><span><b>😴</b>sleep</span><span><b>⏰</b>wake up</span><span><b>📚</b>study</span><span><b>💼</b>work</span><span><b>📖</b>read</span><span><b>🎧</b>listen to music</span><span><b>🏊</b>exercise</span></div>
+<div id="w"></div></section>
+
+<section id="p2"><h2><small>Part 2</small>Vocabulary Cards (SRS)</h2>
+<p class="lead">Look at the card. Think. Tap to see the answer. Then choose how it felt. <b>Again</b> and <b>Hard</b> cards come back soon.</p>
+<div class="card"><div class="stat"><span id="s1"></span><span id="s2"></span><span id="s3"></span></div>
+<div id="fc"></div><div class="rate" id="rt"></div><p class="fb" id="sf" style="text-align:center"></p></div></section>
+
+<section id="p3"><h2><small>Part 3</small>How Often Do You Do It?</h2>
+<p class="lead">Tap a word on the scale. The percentages are only a guide, not a strict rule.</p>
+<div class="card"><div class="track"></div><div class="sc" id="sc"></div>
+<div class="say" id="sd">👆 Tap a word.</div></div>
+<div class="card"><h3>My routine</h3><div id="mr"></div><div class="say" id="mo">Choose a frequency for each activity.</div></div></section>
+
+<section id="p4"><h2><small>Part 4</small>Discover the Pattern</h2>
+<div class="card"><p>I <span class="hl">always</span> read at night.<br>I <span class="hl">sometimes</span> listen to music.<br>I <span class="hl">never</span> go to bed at midnight.</p>
+<p>I am <span class="hl">usually</span> tired after work.<br>I am <span class="hl">sometimes</span> busy.</p><div id="d"></div>
+<div class="pat" id="dp"><h3>The pattern</h3><p><b>I</b> <b class="a">always</b> <b>read</b> … ← adverb <u>before</u> the main verb</p><p><b>I</b> <b>am</b> <b class="a">usually</b> <b>tired</b> … ← adverb <u>after</u> am / is / are</p></div></div></section>
+
+<section id="p5"><h2><small>Part 5</small>Interactive Practice</h2>
+<p class="lead">Try each activity. If you make a mistake, try again — that is how we learn!</p>
+<h3>1 · Tap the right place</h3><div id="e1"></div>
+<h3>2 · Build the sentence</h3><div id="e2"></div>
+<h3>3 · Which word?</h3><div id="e3"></div>
+<h3>4 · About me</h3><div class="card" id="e4"></div>
+<h3>5 · Find the correct sentence</h3><div id="e5"></div></section>
+
+<section id="p6"><h2><small>Part 6</small>Then and Now: used to</h2>
+<p class="lead"><span class="hl">used to</span> = <i>costumava</i>. We use it for habits in the past that are not true now.</p>
+<div id="tn"></div>
+<div class="card"><div class="row" id="tabs"></div><div id="tp" class="say">Tap a tab to see the pattern.</div></div>
+<div id="e6"></div></section>
+
+<section id="p7"><h2><small>Part 7</small>My Habits, My Life</h2>
+<p class="lead">Pick a question. Say the <b>word</b>, then the <b>sentence</b>, then add <b>extra information</b>. You can invent answers!</p><div id="sp"></div></section>
+
+<section id="p8"><h2><small>Part 8</small>My Habit Profile</h2>
+<div class="card"><div id="pr"></div><div class="row"><button class="btn" id="pb2">Build my profile</button></div><div class="say" id="po" style="display:none"></div></div></section>
+
+<section id="p9"><h2><small>Part 9</small>Homework: My 7-Day Habit Tracker</h2>
+<p class="lead">Tick the days you do each habit. Your ticks are saved on this device.</p>
+<div class="card" style="overflow-x:auto"><table id="tk"></table><div class="row"><button class="btn" id="tb">Make my sentences</button></div><div class="say" id="to" style="display:none"></div></div>
+<div class="card"><h3>Then and Now</h3><div class="row">As a child, I used to <input type="text" id="h1" placeholder="play with dolls"></div><div class="row">Now, I usually <input type="text" id="h2" placeholder="use my phone"></div><div class="row"><button class="btn s" id="hb">Make my sentences</button></div><div class="say" id="ho" style="display:none"></div></div></section>
+
+<section><label class="sw"><input type="checkbox" id="tvc"> Show Teacher's View</label><div id="tvh"></div></section>
+</main>
+<footer>Habits &amp; Customs · interactive lesson · works offline</footer>
+
+<template id="tvt"><div class="tv" id="tvb">
+<h2>Teacher's View</h2>
+<h3>Objectives</h3><ul><li>Talk about current routines with frequency adverbs (always → never).</li><li>Understand and use <i>used to</i> for past habits in simple sentences.</li><li>Recycle known vocabulary (routine, hobbies, study, work) and move from word → sentence → extra information.</li></ul>
+<h3>Suggested 60 minutes</h3><ul><li>0–8 · Part 1 warm-up: short answers first, models visible.</li><li>8–18 · Part 2 SRS cards: ~10 cards, mark honestly.</li><li>18–26 · Part 3 scale + “My routine”.</li><li>26–34 · Part 4 discovery, then Part 5 (ex. 1–3).</li><li>34–42 · Part 5 (ex. 4–5), correct gently.</li><li>42–50 · Part 6 Then &amp; Now + exercises.</li><li>50–58 · Part 7 speaking ladder; Part 8 profile (start).</li><li>58–60 · Explain homework (Part 9).</li></ul>
+<h3>Answers</h3><ul>
+<li><b>P4:</b> adverb goes before the main verb; after <i>am/is/are</i>.</li>
+<li><b>P5·1:</b> I <u>usually</u> read before bed (gap 1) · She is <u>always</u> happy (gap 2) · I <u>sometimes</u> go swimming (gap 1).</li>
+<li><b>P5·2:</b> I always listen to music. · She is sometimes busy. · I never drink coffee.</li>
+<li><b>P5·3:</b> Always · Never · Sometimes · Rarely.</li>
+<li><b>P5·5:</b> I am always tired. · I usually go home at 5 p.m. · I am never late.</li>
+<li><b>P6:</b> used to · use to (after didn't) · Did · Past · Now · read.</li>
+<li><b>P4/P6 free answers:</b> accept any true or invented sentence with correct adverb/used to position.</li></ul>
+<h3>Grammar notes</h3><ul><li><b>Adverbs:</b> subject + adverb + verb; subject + <i>be</i> + adverb. Percentages are approximate. <i>Hardly ever</i> ≈ almost never.</li>
+<li><b>Used to:</b> past habit/state, not true now. Affirmative: S + used to + base verb. Negative: S + didn't use to + base verb. Question: Did + S + use to + base verb? In negatives/questions <i>did</i> carries the past, so “use to” has no -d.</li>
+<li>Do not teach <i>be used to / get used to</i> today. Do not require full past simple: <i>used to</i> is a chunk.</li></ul>
+<h3>Common errors</h3><ul><li>“I always am tired” / “I go usually…” (position).</li><li>“I use to read” (affirmative) or “I didn't used to” (double past).</li><li>“I used to reading / read-ed” (verb must be base form).</li><li>Missing “I” or “am”: “Always tired.” Model the full sentence.</li><li>Pronunciation: “used to” /juːst tə/; “always” /ˈɔːlweɪz/; “rarely” /ˈreəli/.</li></ul>
+<h3>Correction without interrupting</h3><ul><li>Let her finish; note the error; then recast: “Yes, you <i>usually go</i> home at 5.” Ask her to repeat.</li><li>Correct max. 1–2 things per turn; praise communication first.</li><li>Use Portuguese briefly only for meaning (e.g. <i>used to</i>).</li></ul>
+<h3>Adapting for A0–A1</h3><ul><li>Accept one word, then build up. Keep models visible.</li><li>Use her life: Psychology, work, Pilates, swimming, crochet, Taylor Swift, Lana Del Rey, Bruno Mars.</li><li>She can invent answers; never force personal sharing.</li><li>Repeat activities rather than adding new ones.</li></ul>
+<h3>Speaking observation criteria</h3><ul><li>Understands the question (word, gesture, answer).</li><li>Adverb placement in a full sentence.</li><li><i>used to + base verb</i> with support.</li><li>Fluency: pauses, self-repair, willingness to try.</li><li>Pronunciation of key chunks (used to, always, usually).</li></ul>
+<h3>SRS tips</h3><ul><li>Write each “Again/Hard” card in a notebook list and revisit it in the next lesson.</li><li>Ask her to say the example aloud before flipping.</li><li>Cards marked Easy twice can leave the deck; add 3–5 new words per week at most.</li></ul>
+</div></template>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const done=new Set(),N=9;
+$("#dots").append(...[1,2,3,4,5,6,7,8,9].map(i=>{const a=el("a","",i);a.href="#p"+i;a.id="dot"+i;a.title="Part "+i;return a}));
+function mark(n){if(done.has(n))return;done.add(n);$("#dot"+n).classList.add("d");$("#pf").style.width=done.size/N*100+"%";$("#pt").textContent="Lesson progress: "+done.size+" / "+N+(done.size===N?" 🎉 Well done, Helaine!":"");$("#pb").setAttribute("aria-valuenow",done.size)}
+const ADV=["always","usually","often","sometimes","rarely","hardly ever","never"];
+const pick=(sel,arr)=>arr.map(x=>"<option>"+x+"</option>").join("");
+/* generic multiple choice */
+function mc(root,items,cb){let ok=0;items.forEach(it=>{const c=el("div","card"),f=el("p","fb"),o=el("div","opts");c.innerHTML="<div>"+it.q+"</div>";
+it.o.forEach((t,i)=>{const b=el("button","opt",t);b.onclick=()=>{if(c.dataset.d)return;if(i===it.a){c.dataset.d=1;b.classList.add("ok");f.textContent="✅ "+it.f;if(++ok===items.length&&cb)cb()}else{b.classList.add("no");b.disabled=true;f.textContent="🤔 Not yet — try again! "+(it.h||"")}};o.append(b)});c.append(o,f);root.append(c)})}
+
+/* P1 */
+const wq=[["What time do you wake up?",[["6 a.m.","I wake up at 6 a.m."],["7 a.m.","I wake up at 7 a.m."],["8 a.m.","I wake up at 8 a.m."]]],
+["Do you read every day?",[["Yes","Yes, I do. I read every day."],["No","No, I don't. I read on weekends."],["Sometimes","Sometimes. I read at night."]]],
+["Do you listen to music every day?",[["Yes","Yes, I do. I listen to music every day."],["No","No, I don't. I listen to music on weekends."],["Sometimes","Sometimes. I listen to music at night."]]],
+["Do you exercise?",[["Yes","Yes, I do. I do Pilates."],["No","No, I don't."],["Sometimes","Sometimes. I go swimming."]]]];
+let wa=new Set();
+wq.forEach((q,i)=>{const c=el("div","card"),s=el("div","say","Say it 👄");s.style.display="none";c.innerHTML="<b>"+q[0]+"</b>";const r=el("div","row");
+q[1].forEach(a=>{const b=el("button","chip",a[0]);b.onclick=()=>{[...r.children].forEach(x=>x.classList.remove("on"));b.classList.add("on");s.style.display="block";s.textContent="🗣️ "+a[1];wa.add(i);if(wa.size===4)mark(1)};r.append(b)});c.append(r,s);$("#w").append(c)});
+
+/* P2 SRS */
+const deck=[["Wake up","⏰","I wake up at 7 a.m.","acordar"],["Go home","🏠","I go home at 5 p.m.","ir para casa"],["Go to bed","🛏️","I go to bed at 10 p.m.","ir dormir"],["Study Psychology","🧠","I study Psychology.","estudar Psicologia"],["Work at a company","💼","I work at a company.","trabalhar em uma empresa"],["Read books","📚","I read books.","ler livros"],["Listen to music","🎧","I listen to music.","ouvir música"],["Do Pilates","🧘","I do Pilates.","fazer Pilates"],["Go swimming","🏊","I go swimming.","ir nadar"],["Crochet","🧶","I crochet.","fazer crochê"],["Every day","📅","I use my phone every day.","todos os dias"],["At night","🌙","I read at night.","à noite"],["In the morning","🌅","I drink coffee in the morning.","de manhã"],["On weekends","🎉","I rest on weekends.","nos fins de semana"],
+["I wake up at 7 a.m.","🗣️","Eu acordo às 7h.","Say it, then flip"],["I go home at 5 p.m.","🗣️","Eu volto para casa às 17h.","Say it, then flip"],["I go to bed at 10 p.m.","🗣️","Eu vou dormir às 22h.","Say it, then flip"],["I usually read at night.","🗣️","Eu geralmente leio à noite.","Say it, then flip"],["I sometimes listen to music before bed.","🗣️","Às vezes eu ouço música antes de dormir.","Say it, then flip"]];
+let q=deck.map((_,i)=>i),good={},mast=0,nr=0,flipped=false;
+const GAP={again:2,hard:4,good:8};
+["again","hard","good","easy"].forEach(k=>{const b=el("button","btn"+(k=="again"||k=="hard"?" s":""),k[0].toUpperCase()+k.slice(1));b.dataset.k=k;b.disabled=true;b.onclick=()=>rate(k);$("#rt").append(b)});
+function draw(){const rb=$("#rt").children;[...rb].forEach(b=>b.disabled=!flipped);
+$("#s1").textContent="Cards left: "+q.length;$("#s2").textContent="Mastered: "+mast;$("#s3").textContent="Reviews: "+nr;
+if(!q.length){$("#fc").innerHTML="<div class='flash back'><em>🎉</em><b>All cards mastered!</b></div>";return}
+const d=deck[q[0]],b=el("button","flash"+(flipped?" back":""));b.setAttribute("aria-label","Flip card");
+b.innerHTML=flipped?"<em>"+d[1]+"</em><b>"+d[2]+"</b><small>"+d[3]+"</small>":"<em>"+d[1]+"</em><b>"+d[0]+"</b><small>Tap to see the answer</small>";
+b.onclick=()=>{flipped=true;draw()};$("#fc").innerHTML="";$("#fc").append(b)}
+function rate(k){const i=q.shift();nr++;flipped=false;let m="";
+if(k==="easy"){mast++;m="Easy! This card goes away. 💜"}
+else if(k==="good"){good[i]=(good[i]||0)+1;if(good[i]>=2){mast++;m="Good! You remembered it twice — mastered."}else{q.splice(Math.min(GAP.good,q.length),0,i);m="Good! It comes back later."}}
+else{q.splice(Math.min(GAP[k],q.length),0,i);m=k==="again"?"No problem. It comes back very soon.":"OK. It comes back soon."}
+$("#sf").textContent=m;if(nr>=10)mark(2);draw()}
+draw();
+
+/* P3 */
+const SC=[["never","0%","🚫","I never go to bed at midnight.","nunca"],["hardly ever","1–5%","🌑","I hardly ever watch TV.","quase nunca"],["rarely","10–20%","🌘","I rarely eat fast food.","raramente"],["sometimes","40–50%","🌓","I sometimes listen to music.","às vezes"],["often","60–70%","🌔","I often read books.","com frequência"],["usually","80–90%","🌕","I usually wake up at 7 a.m.","geralmente"],["always","100%","✨","I always read before bed.","sempre"]];
+let sv=new Set();
+SC.forEach(s=>{const b=el("button","","<span>"+s[2]+"</span>"+s[0]+"<small>"+s[1]+"</small>");b.onclick=()=>{[...$("#sc").children].forEach(x=>x.classList.remove("on"));b.classList.add("on");$("#sd").innerHTML="<b class='hl'>"+s[0]+"</b> ≈ "+s[1]+" · <i>"+s[4]+"</i><br>🗣️ "+s[3];sv.add(s[0]);if(sv.size>=3)mark(3)};$("#sc").append(b)});
+const ACT=[["📖","read books"],["🎧","listen to music"],["🏊","go swimming"],["📱","use social media"]];
+function mr(){const out=ACT.map((a,i)=>{const v=$("#ms"+i).value;return v?"I "+v+" "+a[1]+".":null}).filter(Boolean);$("#mo").innerHTML=out.length?out.join("<br>"):"Choose a frequency for each activity."}
+ACT.forEach((a,i)=>{const r=el("div","row","<span style='font-size:1.6rem'>"+a[0]+"</span><b style='min-width:10em'>"+a[1]+"</b><select id='ms"+i+"'><option value=''>Choose…</option>"+pick(0,ADV)+"</select>");r.onchange=mr;$("#mr").append(r)});
+$("#mr").addEventListener("change",()=>{if(ACT.every((a,i)=>$("#ms"+i).value))mark(3)});
+
+/* P4 */
+mc($("#d"),[{q:"<b>Look at the first three sentences.</b> Where is the adverb (always, sometimes, never)?",o:["Before the main verb (read, listen, go)","At the end","At the beginning"],a:0,f:"Yes! I + adverb + verb."},
+{q:"<b>Now look at “I am usually tired”.</b> Where is the adverb?",o:["Before am","After am (verb to be)","At the end"],a:1,f:"Yes! With am / is / are, the adverb comes after."}],()=>{$("#dp").classList.add("show");mark(4)});
+
+/* P5 */
+let sub=0;const subOk=()=>{if(++sub===5)mark(5)};
+// 1 gaps
+const g1=[["usually",["I","read","before bed."],1],["always",["She","is","happy."],2],["sometimes",["I","go","swimming."],1]];let g1ok=0;
+g1.forEach(it=>{const c=el("div","card"),f=el("p","fb");let h="<b>Where does “<span class='hl'>"+it[0]+"</span>” go?</b><br>";const s=el("div","row");
+it[1].forEach((t,i)=>{s.append(el("span","",t));const b=el("button","gap","＋");b.onclick=()=>{if(c.dataset.d)return;if(i+1===it[2]){c.dataset.d=1;const w=it[1].slice();w.splice(it[2],0,it[0]);s.innerHTML="<b>"+w.join(" ")+"</b>";f.textContent="✅ Great! Say it aloud.";if(++g1ok===3)subOk()}else{f.textContent="🤔 Not yet — try another place!"}};s.append(b)});
+c.innerHTML=h;c.append(s,f);$("#e1").append(c)});
+// 2 builder
+const b2=[["I always listen to music.",["music.","always","I","listen to"]],["She is sometimes busy.",["busy.","is","sometimes","She"]],["I never drink coffee.",["never","coffee.","I","drink"]]];let b2ok=0;
+b2.forEach(it=>{const c=el("div","card"),a=el("div","say","…"),r=el("div","row"),f=el("p","fb");let cur=[];
+const ch=it[1].map(w=>{const b=el("button","chip",w);b.onclick=()=>{if(c.dataset.d)return;cur.push(w);b.disabled=true;a.textContent=cur.join(" ")};r.append(b);return b});
+const ck=el("button","btn","Check"),cl=el("button","btn s","Clear");
+ck.onclick=()=>{if(c.dataset.d)return;if(cur.join(" ")===it[0]){c.dataset.d=1;f.textContent="✅ Perfect! Read it aloud.";if(++b2ok===3)subOk()}else f.textContent="🤔 Almost. Clear and try again."};
+cl.onclick=()=>{cur=[];a.textContent="…";ch.forEach(b=>b.disabled=false)};
+c.innerHTML="<b>Put the words in order:</b>";c.append(r,a,el("div","row"),f);c.children[3].append(ck,cl);$("#e2").append(c)});
+mc($("#e3"),[{q:"<b>100%</b> — every day",o:["Never","Always","Sometimes"],a:1,f:"Always = 100%."},{q:"<b>0%</b> — not ever",o:["Never","Often","Rarely"],a:0,f:"Never = 0%."},{q:"<b>40–50%</b> — some days yes, some days no",o:["Sometimes","Usually","Hardly ever"],a:0,f:"Sometimes = about half."},{q:"<b>10–20%</b> — not many times",o:["Often","Rarely","Always"],a:1,f:"Rarely = not many times."}],subOk);
+// 4 personal
+$("#e4").innerHTML="<b>Complete with your own idea:</b><div class='row'>I <select id='a4'>"+pick(0,ADV)+"</select> <input type='text' id='i4' placeholder='read, swim, crochet…'> on weekends.</div><button class='btn' id='b4'>Say it!</button><div class='say' id='o4' style='display:none'></div>";
+$("#b4").onclick=()=>{const v=$("#i4").value.trim();if(!v){$("#o4").style.display="block";$("#o4").textContent="✏️ Write an activity first (example: read).";return}$("#o4").style.display="block";$("#o4").textContent="🗣️ I "+$("#a4").value+" "+v+" on weekends. — Great! Now say it aloud.";subOk()};
+mc($("#e5"),[{q:"<b>Choose the correct sentence.</b>",o:["I always am tired.","I am always tired.","I am tired always."],a:1,f:"I am always tired. (adverb after am)"},{q:"<b>Correct the mistake:</b> “I go usually home at 5 p.m.”",o:["I usually go home at 5 p.m.","I go home at usually 5 p.m.","Usually go I home at 5 p.m."],a:0,f:"I usually go home at 5 p.m."},{q:"<b>Correct the mistake:</b> “I never am late.”",o:["I am late never.","I am never late.","Never I am late."],a:1,f:"I am never late."}],subOk);
+
+/* P6 */
+const tn=[["I used to watch cartoons every day.","Now, I usually watch series."],["I used to play with dolls.","Now, I often do crochet."],["I used to read bedtime stories.","Now, I sometimes read novels."],["I used to listen to music before bed.","Now, I use my phone before bed."]];
+$("#tn").innerHTML=tn.map(p=>"<div class='tn'><div class='t'><h4>THEN</h4>"+p[0].replace("used to","<span class='hl'>used to</span>")+"</div><div class='n'><h4>NOW</h4>"+p[1]+"</div></div>").join("");
+const TB=[["✅ I used to…","<span class='hl'>I used to</span> read every night.<br>I used to play with dolls.<br><small>Subject + used to + base verb</small>"],["❌ I didn't use to…","I <span class='hl'>didn't use to</span> drink coffee.<br><small>Subject + didn't use to + base verb</small>"],["❓ Did you use to…?","<span class='hl'>Did</span> you <span class='hl'>use to</span> read a lot?<br><small>Did + subject + use to + base verb?</small>"]];let tt=new Set();
+TB.forEach((t,i)=>{const b=el("button","tab",t[0]);b.onclick=()=>{[...$("#tabs").children].forEach(x=>x.classList.remove("on"));b.classList.add("on");$("#tp").innerHTML=t[1];tt.add(i)};$("#tabs").append(b)});
+mc($("#e6"),[{q:"<b>As a child, I ___ watch cartoons every day.</b>",o:["used to","use to","used"],a:0,f:"I used to watch…"},{q:"<b>I didn't ___ drink coffee.</b>",o:["used to","use to","using to"],a:1,f:"After didn't → use to."},{q:"<b>___ you use to read a lot?</b>",o:["Do","Did","Are"],a:1,f:"Did you use to…?"},{q:"<b>“I used to play with dolls.”</b> Past or Now?",o:["Past","Now"],a:0,f:"Past habit."},{q:"<b>“Now I usually use my phone.”</b> Past or Now?",o:["Past","Now"],a:1,f:"Now = present."},{q:"<b>I used to ___ bedtime stories.</b>",o:["read","reading","readed"],a:0,f:"used to + base verb: read."}],()=>mark(6));
+
+/* P7 */
+const SQ=[["What time do you usually wake up?","wake up · usually · a.m.","At 7.","I usually wake up at 7 a.m.","I usually wake up at 7 a.m. because I work."],["Do you always listen to music?","always · sometimes · music","Sometimes.","I sometimes listen to music.","I sometimes listen to music because I like Taylor Swift."],["How often do you read?","often · at night · books","Often.","I often read at night.","I often read at night because I like books."],["Do you sometimes go swimming?","swimming · on weekends","Yes, I do.","I sometimes go swimming.","I sometimes go swimming on weekends because I like it."],["What did you use to do when you were a child?","used to · play · cartoons","Play.","I used to play with dolls.","I used to play with dolls every day with my friends."],["Did you use to watch cartoons?","Yes, I did. · No, I didn't.","Yes, I did.","Yes, I used to watch cartoons.","Yes, I used to watch cartoons after school."]];let said=new Set();
+SQ.forEach((s,i)=>{const c=el("div","card"),m=el("div","say","👆 Choose a step."),r=el("div","row");c.innerHTML="<b>"+s[0]+"</b><br><small>Words: "+s[1]+"</small>";
+["1 · Word","2 · Sentence","3 · Extra"].forEach((t,k)=>{const b=el("button","tab",t);b.onclick=()=>{[...r.children].forEach(x=>x.classList.remove("on"));b.classList.add("on");m.textContent="🗣️ "+s[2+k]};r.append(b)});
+const d=el("button","chip","I said it ✓");d.onclick=()=>{d.classList.toggle("on");d.classList.contains("on")?said.add(i):said.delete(i);if(said.size>=3)mark(7)};r.append(d);c.append(r,m);$("#sp").append(c)});
+
+/* P8 */
+const PR=[["Three current habits","I <select>"+pick(0,ADV.slice(0,4))+"</select> <input type='text' placeholder='read books'>",3],["Two things I rarely / never do","I <select>"+pick(0,["rarely","hardly ever","never"])+"</select> <input type='text' placeholder='eat fast food'>",2],["Two habits I used to have","I used to <input type='text' placeholder='watch cartoons'>",2],["One habit I want to develop","I want to <input type='text' placeholder='exercise more'>",1]];
+PR.forEach(p=>{const d=el("div","","<h3>"+p[0]+"</h3>");for(let i=0;i<p[2];i++)d.append(el("div","row",p[1]));$("#pr").append(d)});
+$("#pb2").onclick=()=>{let L=[];[...$("#pr").children].forEach((d,gi)=>{[...d.querySelectorAll(".row")].forEach(r=>{const s=r.querySelector("select"),v=r.querySelector("input").value.trim();if(!v)return;L.push(gi==2?"I used to "+v+".":gi==3?"I want to "+v+".":"I "+s.value+" "+v+".")})});
+const o=$("#po");o.style.display="block";if(!L.length){o.textContent="✏️ Write at least one habit.";return}o.innerHTML="<b>My Habit Profile</b><br>"+L.join("<br>")+"<br>🗣️ Now read your profile aloud!";if(L.length>=4)mark(8)};
+
+/* P9 */
+const TR=[["Reading","read"],["Listening to music","listen to music"],["Studying English","study English"],["Exercising","exercise"]],DY=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+let sav={};try{sav=JSON.parse(localStorage.getItem("hab-trk")||"{}")}catch(e){}
+$("#tk").innerHTML="<tr><th>Habit</th>"+DY.map(d=>"<th>"+d+"</th>").join("")+"</tr>"+TR.map((t,i)=>"<tr><td>"+t[0]+"</td>"+DY.map((d,j)=>"<td><input type='checkbox' aria-label='"+t[0]+" "+d+"' data-k='"+i+"-"+j+"'"+(sav[i+"-"+j]?" checked":"")+"></td>").join("")+"</tr>").join("");
+$("#tk").onchange=e=>{sav[e.target.dataset.k]=e.target.checked;try{localStorage.setItem("hab-trk",JSON.stringify(sav))}catch(x){}};
+const adv=n=>n>=7?"always":n>=5?"usually":n==4?"often":n>=2?"sometimes":n==1?"rarely":"never";let hd=new Set();
+$("#tb").onclick=()=>{$("#to").style.display="block";$("#to").innerHTML=TR.map((t,i)=>{let n=0;for(let j=0;j<7;j++)if(sav[i+"-"+j])n++;return "I <b class='hl'>"+adv(n)+"</b> "+t[1]+". <small>("+n+"/7 days)</small>"}).join("<br>")+"<br>🗣️ Say your sentences!";hd.add(1);if(hd.size==2)mark(9)};
+$("#hb").onclick=()=>{const a=$("#h1").value.trim(),b=$("#h2").value.trim();$("#ho").style.display="block";if(!a||!b){$("#ho").textContent="✏️ Complete both ideas.";return}$("#ho").innerHTML="As a child, I <b class='hl'>used to</b> "+a+".<br>Now, I usually "+b+".";hd.add(2);if(hd.size==2)mark(9)};
+
+/* Teacher's View: not in the DOM until checked */
+$("#tvc").onchange=e=>{const h=$("#tvh");if(e.target.checked){h.append($("#tvt").content.cloneNode(true))}else h.innerHTML=""};
+</script>
+</body>
+</html>
